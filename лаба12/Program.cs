@@ -10,6 +10,7 @@ namespace лаба12
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
