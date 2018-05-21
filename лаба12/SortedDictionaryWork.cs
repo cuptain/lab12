@@ -8,5 +8,6 @@ namespace лаба12
 {
     class SortedDictionaryWork
     {
+
     }
 }
