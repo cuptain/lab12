@@ -76,6 +76,68 @@ namespace DifferentMenus
             Console.CursorVisible = true;
             return paragraph;
         }
+
+        public static int Menu(int k,string headLine, params string[] pechat)
+        {
+            Console.Clear();
+            Console.WriteLine(headLine);
+            int tek = 0, x = 2, y = 2, tekold = 0;
+            Console.CursorVisible = false;
+            var ok = false;
+            for (var i = 0; i < pechat.Length; i++)
+            {
+                Console.SetCursorPosition(x, y + i);
+                if (i % (k + 1) == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+
+                Console.Write(pechat[i]);
+            }
+
+    ;
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(x, y + tekold);
+                Console.Write(pechat[tekold] + " ");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.SetCursorPosition(x, y + tek);
+                Console.Write(pechat[tek]);
+                tekold = tek;
+                var key = Console.ReadKey();
+                switch (key.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        tek += k + 1;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        tek -= k + 1;
+                        break;
+                    case ConsoleKey.Enter:
+                        ok = true;
+                        break;
+                }
+
+                if (tek >= pechat.Length)
+                    tek = 0;
+                else if (tek < 0)
+                    tek = pechat.Length - 1;
+            } while (!ok);
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
+            return tek + 1;
+        }
     }
 
     public class Lab5Menus

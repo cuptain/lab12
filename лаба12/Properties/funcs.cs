@@ -65,7 +65,7 @@ namespace FuncThat
             return inpNum;
         }
 
-        public static string EnterName()
+        public static string EnterName(string task = null)
         //ввод ФИО
         {
             string name = null;
@@ -74,9 +74,10 @@ namespace FuncThat
             Regex r = new Regex(pattern);
             do
             {
+                Console.Write(task);
                 name = Console.ReadLine();
                 ok = r.IsMatch(name);
-                if (!ok) { Console.WriteLine("Имя и фамилия введены неверно, потворите ввод"); ok = false;}
+                if (!ok) { Console.WriteLine("Ошибка ввода. Введите фамилию и имя в формате \"Фамилия Имя\" :"); ok = false; }
             } while (!ok);
             return name;
         }
@@ -96,6 +97,28 @@ namespace FuncThat
             return inpNum;
         }
 
+        public static int ReadVGran(int min, int max, string name = null)
+        {
+            int chislo;
+            do
+            {
+                chislo = ReadInt();
+                if (chislo < min || chislo > max) Console.WriteLine(name + " должен быть больше, чем {0} и меньше, чем {1}. Попробуйте ещё раз:", min, max);
+            } while (chislo < min || chislo > max);
+            return chislo;
+        }
+
+        public static long ReadVGran(long min, long max, string name = null)
+        {
+            long chislo;
+            do
+            {
+                chislo = ReadInt();
+                if (chislo < min || chislo > max) Console.WriteLine(name + " должна быть больше, чем {0}. Попробуйте ещё раз:", min);
+            } while (chislo < min || chislo > max);
+            return chislo;
+        }
+
         public static int ReadVGran(int min, string name = null)
         {
             int inpNum;
@@ -103,9 +126,16 @@ namespace FuncThat
             {
                 inpNum = ReadInt();
                 if (inpNum <= min)
-                    Console.WriteLine( name + " должен(но) быть больше, чем {0}. Попробуйте ещё раз:", min);
+                    Console.WriteLine(name + " должен(но) быть больше, чем {0}. Попробуйте ещё раз:", min);
             } while (inpNum <= min);
             return inpNum;
+        }
+
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            var tmp = a;
+            a = b;
+            b = tmp;
         }
     }
 

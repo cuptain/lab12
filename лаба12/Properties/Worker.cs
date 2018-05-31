@@ -9,7 +9,7 @@ using FuncThat;
 namespace лаба11
 {
     //Производный от Person
-    class Worker : Person, PersonInterface, IComparable
+    class Worker : Person, IPerson, IComparable
     {
         protected int experience;
         protected long salary;

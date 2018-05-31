@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 namespace лаба11
 {
     //Базовый интерфейс
-    interface PersonInterface:IComparable
+    interface IPerson:IComparable
     {
+        string Return_se_name(); //метод возврата фамилии
+
+        string Return_name(); //метод возврата фамилии
+
         void Input(); //метод ввода
 
         void Show(); //метод вывода

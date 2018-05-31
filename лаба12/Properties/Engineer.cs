@@ -7,7 +7,7 @@ using FuncThat;
 
 namespace лаба11
 {
-    class Engineer : Worker, PersonInterface, IComparable
+    class Engineer : Worker, IPerson, IComparable
     {
         protected int factory;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace лаба11
 {
-    abstract class Person : PersonInterface, IComparable
+    abstract class Person : IPerson, IComparable
     {
         public string name, surname;
 
@@ -27,6 +27,16 @@ namespace лаба11
         {
             name = "";
             surname = "";
+        }
+
+        public string Return_name()
+        {
+            return name;
+        }
+
+        public string Return_se_name()
+        {
+            return surname;
         }
 
         //Конструктор с параметрами
